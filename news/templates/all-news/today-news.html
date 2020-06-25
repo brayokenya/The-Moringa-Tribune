@@ -11,7 +11,9 @@
             <h2 class="text-center"> {{ news_item.title }} </h2>
             <p> <strong>Post :</strong>{{news_item.post}} </p>
             <p>
-                <strong>Author :</strong>{{news_item.editor}} </p>
+                <!-- <strong>Author :</strong>{{news_item.editor}} </p> -->
+                <p>Posted {{article.pub_date|timesince}} by {{article.editor.first_name}}</p>
+
 
         </div>
         <!--Display news Article images  -->

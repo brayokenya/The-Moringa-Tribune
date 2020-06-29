@@ -13,7 +13,7 @@ from .email import send_welcome_email
 def news_today(request):
     date = dt.date.today()
     news = Article.todays_news()
-    return render(request, 'all-news/today-news.html', {"date": date, "news":news })
+    # return render(request, 'all-news/today-news.html', {"date": date, "news":news })
 
     if request.method == 'POST':
         form = NewsLetterForm(request.POST)
@@ -23,7 +23,7 @@ def news_today(request):
             recipient = NewsLetterRecipients(name = name,email =email)
             recipient.save()
             send_welcome_email(name,email)
-            HttpResponseRedirect('news_today')
+            return HttpResponseRedirect('/')
     else:
         form = NewsLetterForm()
     return render(request, 'all-news/today-news.html', {"date": date,"news":news,"letterForm":form})

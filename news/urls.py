@@ -13,7 +13,8 @@ urlpatterns=[
     url(r'^search/', views.search_results, name='search_results'), 
     url(r'^article/(\d+)',views.article,name ='article'),
     url(r'^tinymce/', include('tinymce.urls')),
-    url(r'^new/article$', views.new_article, name='new-article')
+    url(r'^new/article$', views.new_article, name='new-article'),
+    url(r'^ajax/newsletter/$', views.newsletter, name='newsletter')
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
